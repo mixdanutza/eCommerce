@@ -1,0 +1,74 @@
+<h1 id="hello">Customers!</h1>
+<form method="GET" action="/logout" controller="Registration" id="logout_butt">
+    <button type="submit" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+    </button>
+</form>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">                      
+      </button>
+    </div>   
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/ProductsPage">Products</a></li>
+        <li><a href="/OrdersPage">Orders</a></li>
+        <li class="active"><a href="/CustomersPage">Customers</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<p><a href="#">Add a new customer</a></p>
+    @if(@ViewBag.Errors != null)
+    {
+        @foreach(var error in @ViewBag.Errors){
+            <div  class="alert alert-danger"> @error</div>
+        }
+
+    }
+
+
+
+<form class="navbar-form navbar-left" action="/AddCustomer"  method="POST">
+    <div class=" input-group">
+        <label for="CustomerName">Customer Name:</label>
+        <input type="text" name="CustomerName" class="form-control" placeholder="Name..">      
+    </div>
+    <div class=" input-group">
+        <button type="submit" class="btn btn-primary Add">Add Customer</button>      
+    </div>
+</form>
+
+
+<table class="table table-inverse">
+  <thead>
+    <tr>
+      <th>#Id</th>
+      <th>Customer Name</th>
+      <th>Created Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach(var customer in @ViewBag.AllCustomers){
+    <tr>
+      <th scope="row">@customer.CustomerId</th>
+      <td>@customer.CustomerName</td>
+      <td>@customer.created_at</td>
+      <td>
+          <form action="/DeleteCustomer/@customer.CustomerId" method="POST">
+            <button type="submit" class="btn btn-default btn-sm delete">
+            <span class="glyphicon glyphicon-trash"></span> Trash 
+            </button> 
+          </form>
+      </td>
+    </tr>
+}
+
+  </tbody>
+</table>

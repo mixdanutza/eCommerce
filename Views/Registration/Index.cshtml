@@ -1,0 +1,118 @@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model ECommerce.Models.UserViewModel
+@{
+    if(@ViewBag.Errors!=null){
+        foreach(var error in @ViewBag.Errors){
+            <p>@error</p>
+        }
+    }
+}
+@{
+    if(!Html.ViewData.ModelState.IsValid)
+    {
+    <div  class="alert alert-warning" asp-validation-summary="All"></div>
+
+    }
+}
+
+
+
+
+	<div class="container">
+				<div class="main-login main-center">
+<!--_____REGISTER__________________________________________________________________________________________________________________-->
+
+					<form class="form-horizontal" method="post"  asp-controller="Registration" asp-action="register">
+						<h3>Please register here</h3>
+						<div class="form-group">
+							<label asp-for="FirstName" class="cols-sm-2 control-label">First Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input  class="form-control" asp-for="FirstName" id="email"  placeholder="Enter your Name"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label asp-for="LastName" class="cols-sm-2 control-label">Last Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input  class="form-control" asp-for="LastName" id="name"  placeholder="Enter your Last Name"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label asp-for="Email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input class="form-control" asp-for="Email" id="name"  placeholder="Enter your Email"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label asp-for="Password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input  class="form-control" asp-for="Password" id="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+                        <div class="form-group">
+							<label asp-for="ConfPassword" class="cols-sm-2 control-label">Confirm password:</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input  class="form-control" asp-for="ConfPassword" id="password"  placeholder="Confirm your Password"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+						</div>
+					</form>
+				</div>
+
+<!--_____LOGIN__________________________________________________________________________________________________________________-->
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="/login">
+						<h3>Please login here</h3>
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" name="LogEmail" id="name"  placeholder="Enter your Name"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="LogPassword" id="password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+						</div>
+					</form>
+				</div>
+
+                
+			</div>
+
+
+            
+		</div>
+
+		<script type="text/javascript" src="assets/js/bootstrap.js"></script>

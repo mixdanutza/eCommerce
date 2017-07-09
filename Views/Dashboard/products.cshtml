@@ -1,0 +1,93 @@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 id="hello">Products!</h1>
+<form method="GET" action="/logout" controller="Registration" id="logout_butt">
+    <button type="submit" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+    </button>
+</form>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">                      
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li class="active"><a href="/ProductsPage">Products</a></li>
+        <li><a href="/OrdersPage">Orders</a></li>
+        <li><a href="/CustomersPage">Customers</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+    <div class="col-sm-3 well ProductsPage">
+      
+      <form class="navbar-form navbar-right" role="search">
+            <div class="form-group input-group">
+            <input type="text" class="form-control" placeholder="Search..">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>        
+            </div>
+      </form>
+     
+  
+        <p><a href="#">Add a new product</a></p>
+        @if(@ViewBag.Errors != null)
+        {
+            @foreach(var error in @ViewBag.Errors){
+                <div  class="alert alert-danger"> @error</div>
+            }
+
+        }
+        <form class="navbar-form navbar-right" action="/AddProduct" method="POST">
+            <div class=" input-group">
+              <label for="ProductName">Product Name:</label>
+              <input type="text" name="ProductName" class="form-control" placeholder="name..">      
+            </div>
+            <div class=" input-group">
+              <label for="ProductUrl">Image (url):</label>
+              <input type="text" name="ProductUrl" class="form-control" placeholder="http://...">      
+            </div>
+            <div class=" input-group">
+              <label for="ProductDescription">Description:</label>
+              <input type="text" name="ProductDescription" class="form-control" placeholder="Add description here ..">      
+            </div>
+            <div class=" input-group">
+              <label for="ProductQuantity">Inital Quantity:</label>
+              <input type="number" name="ProductQuantity" class="form-control" step="1" min="0" >      
+            </div>
+            <div class=" input-group">
+              <button type="submit" class="btn btn-primary Add">Add Product</button>      
+            </div>
+         </form>
+    </div>
+    @*Image gallery*@
+        <div class="col-sm-7">
+      @foreach(var product in @ViewBag.AllProducts){
+            <div class="col-sm-4">
+            <div class="well">
+            <p>@product.ProductName</p>
+            <img src="@product.ProductUrl" class="img-square"  width="140" height="100" alt="Avatar">
+            <p>@product.ProductDescription</p>
+            <h6>@product.ProductQuantity left</h6>
+            </div>
+            </div>
+      }
+            
+
+         </div>
