@@ -22,15 +22,15 @@ namespace wedding_planner.Controllers
             [Route("dashboard")]
             public IActionResult dashboard()
             {
-                if(HttpContext.Session.GetInt32("current_user_id")==null){
-                    List<string> error_list=new List<string>();
-                    error_list.Add("Don't try to steal my cookies!");
-                    ViewBag.Errors=error_list;
-                    return View("../Registration/Index");
-                }
-                else{
-                    int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
-                    ViewBag.UserInSession=UserInSession;        
+                // if(HttpContext.Session.GetInt32("current_user_id")==null){
+                //     List<string> error_list=new List<string>();
+                //     error_list.Add("Don't try to steal my cookies!");
+                //     ViewBag.Errors=error_list;
+                //     return View("../Registration/Index");
+                // }
+                // else{
+                //     int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
+                //     ViewBag.UserInSession=UserInSession;        
                     //5 Most Pupular products
                     List<Product> LastProducts=_context.Product.OrderByDescending(pr=>pr.created_at).Take(4).ToList();    
                     ViewBag.LastProducts=LastProducts;   
@@ -42,9 +42,9 @@ namespace wedding_planner.Controllers
                     ViewBag.LastCustomers=LastCustomers;   
                     User last=_context.User.OrderByDescending(x=>x.created_at).Take(1).SingleOrDefault();
                     System.Console.WriteLine("******************************88"); 
-                    Console.WriteLine(last.TimeAgo());      
+                    // Console.WriteLine(last.TimeAgo());      
                     return View("dashboard");
-                }
+                // }
             }
 
             //Display Products
@@ -52,20 +52,20 @@ namespace wedding_planner.Controllers
             [Route("ProductsPage")]
             public IActionResult ProductsPage()
             {
-                if(HttpContext.Session.GetInt32("current_user_id")==null){
-                    List<string> error_list=new List<string>();
-                    error_list.Add("Don't try to steal my cookies!");
-                    ViewBag.Errors=error_list;
-                    return View("../Registration/Index");
-                }
-                else{
-                    int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
+                // if(HttpContext.Session.GetInt32("current_user_id")==null){
+                //     List<string> error_list=new List<string>();
+                //     error_list.Add("Don't try to steal my cookies!");
+                //     ViewBag.Errors=error_list;
+                //     return View("../Registration/Index");
+                // }
+                // else{
+                //     int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
                     List<Product> AllProducts=_context.Product.ToList();
-                    ViewBag.UserInSession=UserInSession;  
+                    // ViewBag.UserInSession=UserInSession;  
                     ViewBag.Errors=TempData["Errors"];
                     ViewBag.AllProducts=AllProducts;            
                     return View("products");
-                }
+                // }
             }
             //Add Product to database
             [HttpPost]
@@ -103,24 +103,24 @@ namespace wedding_planner.Controllers
             [Route("OrdersPage")]
             public IActionResult OrdersPage()
             {
-                if(HttpContext.Session.GetInt32("current_user_id")==null){
-                    List<string> error_list=new List<string>();
-                    error_list.Add("Don't try to steal my cookies!");
-                    ViewBag.Errors=error_list;
-                    return View("../Registration/Index");
-                }
-                else{
-                    int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
+                // if(HttpContext.Session.GetInt32("current_user_id")==null){
+                //     List<string> error_list=new List<string>();
+                //     error_list.Add("Don't try to steal my cookies!");
+                //     ViewBag.Errors=error_list;
+                //     return View("../Registration/Index");
+                // }
+                // else{
+                    // int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
                     List <Customer> AllCustomers=_context.Customer.ToList();
                     ViewBag.AllCustomers=AllCustomers;
                     List <Product> AllProducts=_context.Product.ToList();
                     ViewBag.AllProducts=AllProducts;     
                     List<Order> Ord=_context.Order.Include(prod=>prod.Product).Include(p=>p.Customer).ToList();     
                     ViewBag.Included=Ord;     
-                    ViewBag.UserInSession=UserInSession;  
+                    // ViewBag.UserInSession=UserInSession;  
                     ViewBag.Errors=TempData["Errors"];             
                     return View("orders");
-                }
+                // }
             }
             //Add Order to database
             [HttpPost]
@@ -172,20 +172,20 @@ namespace wedding_planner.Controllers
             [Route("CustomersPage")]
             public IActionResult CustomersPage()
             {
-                if(HttpContext.Session.GetInt32("current_user_id")==null){
-                    List<string> error_list=new List<string>();
-                    error_list.Add("Don't try to steal my cookies!");
-                    ViewBag.Errors=error_list;
-                    return View("../Registration/Index");
-                }
-                else{
-                    int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
+                // if(HttpContext.Session.GetInt32("current_user_id")==null){
+                //     List<string> error_list=new List<string>();
+                //     error_list.Add("Don't try to steal my cookies!");
+                //     ViewBag.Errors=error_list;
+                //     return View("../Registration/Index");
+                // }
+                // else{
+                    // int UserInSession=HttpContext.Session.GetInt32("current_user_id") ??default(int);
                     List <Customer> AllCustomers=_context.Customer.ToList();
-                    ViewBag.UserInSession=UserInSession;  
+                    // ViewBag.UserInSession=UserInSession;  
                     ViewBag.Errors=TempData["Errors"]; 
                     ViewBag.AllCustomers=AllCustomers;           
                     return View("customers");
-                }
+                // }
             }
             //Add customer to database
             [HttpPost]
