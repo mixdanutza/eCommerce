@@ -1,0 +1,164 @@
+/*Write all of your CSS here*//*Write all of your CSS here*//*Write all of your CSS here*//*
+/* Created by Filipe Pina
+ * Specific styles of signin, register, component
+ */
+/*
+ * General styles
+ */
+
+body, html{
+     height: 100%;
+ 	background-repeat: no-repeat;
+ 	background-color: white;
+ 	font-family: 'Oxygen', sans-serif;
+         background-image: url("/images/blur.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
+}
+
+.main{
+ 	margin-top: 70px;
+}
+.container{
+    text-align: -webkit-center;
+    
+}
+
+h1.title { 
+	font-size: 50px;
+	font-family: 'Passion One', cursive; 
+	font-weight: 400; 
+}
+
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+
+.main-login{
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    margin: 2%;
+
+}
+
+.main-center {
+    /* margin-top: 44%; */
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 5px 40px 5px 40px;
+    margin-bottom: 4%;
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}
+h4{
+    color: orange;
+}
+.main-login {
+    background-color: hsla(0, 25%, 90%, 0.1);;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    display: inline-block;
+    margin: 2%;
+}
+.btn-primary {
+    color: black;
+    background-color: darkgray;
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #DBD1C7;
+    border: none;
+}
+button.btn.btn-primary.btn-lg.btn-block.login-button:active{
+    color:none;
+    background-color: black;
+    border: none;
+}
+button.btn.btn-default.btn-sm{
+    background-color: #668DE5;
+    width: 100%;
+    font-weight: bold;
+    font-size: 80%;
+}
+form#logout_butt{
+    width: 10%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.5%;
+}
+form#dash_butt{
+    width: 12%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.5%;
+}
+h1#hello{
+    width: 70%;
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+}
+/*_______________ProductsPage_____________*/
+
+div.col-sm-3.well.ProductsPage{
+    height: 800px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+button.btn.btn-primary.Add{
+    color: black;
+    background-color: darkgray;
+    border: none;
+    margin: 20% 8% 0% 10%;
+}
+
+/*Orders Page*/
+button.btn.btn-default.btn-sm.delete {
+    background-color: red;
+    opacity: 0.z;
+    width: 70px;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.col-sm-7 {
+    width: 75%;
+}
+
+
+div.InfoBox {
+    margin-left: 25%;
+}

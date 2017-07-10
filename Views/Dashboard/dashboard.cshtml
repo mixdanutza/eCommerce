@@ -1,9 +1,4 @@
-<h1 id="hello">Hello!</h1>
-<form method="GET" action="/logout" controller="Registration" id="logout_butt">
-    <button type="submit" class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-log-out"></span> Log out
-    </button>
-</form>
+
 
 @foreach(var product in @ViewBag.LastProducts){
 TimeSpan span=DateTime.Now-@product.created_at;
@@ -32,6 +27,11 @@ TimeSpan span=DateTime.Now-@product.created_at;
         <li><a href="/OrdersPage">Orders</a></li>
         <li><a href="/CustomersPage">Customers</a></li>
         <li><a href="#">Settings</a></li>
+        <li>
+          <form method="GET" action="/logreg" controller="Registration" >
+            <button type="submit">Login</button>          
+          </form>
+        </li>        
       </ul>
 
     </div>

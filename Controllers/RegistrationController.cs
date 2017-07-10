@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +20,15 @@ namespace ECommerce.Controllers
             [Route("")]
             public IActionResult Index()
             {
+                return RedirectToAction("dashboard", "Dashboard");
+            }
+
+             //Login Registration Page Display
+            [HttpGet]
+            [Route("logreg")]
+            public IActionResult logreg()
+            {
+                System.Console.WriteLine("*******");
                 return View("Index");
             }
 
